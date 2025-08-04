@@ -1,0 +1,43 @@
+import React, { useState } from 'react';
+
+const CaseConverter = () => {
+  const [text, setText] = useState('');
+
+  const handleUpperCase = () => setText(text.toUpperCase());
+  const handleLowerCase = () => setText(text.toLowerCase());
+  const handleCapitalize = () =>
+    setText(text.replace(/\b\w/g, char => char.toUpperCase()));
+  const handleRemoveSpaces = () =>
+    setText(text.replace(/\s+/g, ' ').trim());
+  const handleCopy = () => {
+    navigator.clipboard.writeText(text);
+    alert('Text copied!');
+  };
+  const handleClear = () => setText('');
+
+  return (
+    <div className="p-6 max-w-xl mx-auto mt-10 bg-white rounded shadow-lg">
+      <h2 className="text-2xl font-bold mb-4 text-center">🔤 Text Case Converter</h2>
+      <textarea
+        rows="6"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        placeholder="Enter text here..."
+        className="w-full p-3 border rounded mb-4"
+      />
+      <div className="flex flex-wrap gap-2 mb-4">
+        <button onClick={handleUpperCase} className="bg-blue-500 text-white px-3 py-1 rounded">UPPERCASE</button>
+        <button onClick={handleLowerCase} className="bg-green-500 text-white px-3 py-1 rounded">lowercase</button>
+        <button onClick={handleCapitalize} className="bg-yellow-500 text-white px-3 py-1 rounded">Capitalize</button>
+        <button onClick={handleRemoveSpaces} className="bg-purple-500 text-white px-3 py-1 rounded">Remove Spaces</button>
+        <button onClick={handleCopy} className="bg-gray-600 text-white px-3 py-1 rounded">Copy</button>
+        <button onClick={handleClear} className="bg-red-500 text-white px-3 py-1 rounded">Clear</button>
+      </div>
+      <p className="text-sm text-gray-600">
+        Words: {text.trim() === '' ? 0 : text.trim().split(/\s+/).length} | Characters: {text.length}
+      </p>
+    </div>
+  );
+};
+
+export default CaseConverter;
