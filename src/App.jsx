@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import data from './data'
 import Cards from './Cards'
 import CaseConverter from './components/CaseConverter'
+import MegaSingleComponentApp from './components/MegaSingleComponentApp'
 
 export default function App() {
 
@@ -9,7 +10,8 @@ export default function App() {
   return (
     <div>
 {/* <Cards data={mydata}/> */}
-<CaseConverter/>
+{/* <CaseConverter/> */}
+<MegaSingleComponentApp/>
     </div>
   )
 }
