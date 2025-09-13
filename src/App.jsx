@@ -3,6 +3,7 @@ import data from './data'
 import Cards from './Cards'
 import CaseConverter from './components/CaseConverter'
 import MegaSingleComponentApp from './components/MegaSingleComponentApp'
+import BirthdayReminder from './components/BirthdayReminder'
 
 export default function App() {
 
@@ -11,7 +12,8 @@ export default function App() {
     <div>
 {/* <Cards data={mydata}/> */}
 {/* <CaseConverter/> */}
-<MegaSingleComponentApp/>
+{/* <MegaSingleComponentApp/> */}
+<BirthdayReminder/>
     </div>
   )
 }
